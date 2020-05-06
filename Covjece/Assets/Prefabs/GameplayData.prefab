@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2893660352378566766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2893660352378566760}
+  - component: {fileID: 2893660352378566767}
+  m_Layer: 0
+  m_Name: GameplayData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2893660352378566760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893660352378566766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16000003, y: 0.41999745, z: -1.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2893660352378566767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893660352378566766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230815f3665840a4d890480dce06afd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _size: 16
+  _name:
+  - Plavi1
+  - Plavi2
+  - Plavi3
+  - Plavi4
+  - Crveni1
+  - Crveni2
+  - Crveni3
+  - Crveni4
+  - "Ljubi\u010Dasti1"
+  - "Ljubi\u010Dasti2"
+  - "Ljubi\u010Dasti3"
+  - "Ljubi\u010Dasti4"
+  - Zeleni1
+  - Zeleni2
+  - Zeleni3
+  - Zeleni4
+  _characterPrefabObject:
+  - {fileID: 1270048676920603340, guid: 5990d09894ef6184f890c00d763d4cdb, type: 3}
+  - {fileID: 1270048676920603340, guid: 5990d09894ef6184f890c00d763d4cdb, type: 3}
+  - {fileID: 1270048676920603340, guid: 5990d09894ef6184f890c00d763d4cdb, type: 3}
+  - {fileID: 1270048676920603340, guid: 5990d09894ef6184f890c00d763d4cdb, type: 3}
+  - {fileID: 1270048676920603340, guid: fdbaf7c4c280c454f9a3feb99eb15085, type: 3}
+  - {fileID: 1270048676920603340, guid: fdbaf7c4c280c454f9a3feb99eb15085, type: 3}
+  - {fileID: 1270048676920603340, guid: fdbaf7c4c280c454f9a3feb99eb15085, type: 3}
+  - {fileID: 1270048676920603340, guid: fdbaf7c4c280c454f9a3feb99eb15085, type: 3}
+  - {fileID: 1270048676920603340, guid: f6cee176d9f68fa48bd37a1bd12143a3, type: 3}
+  - {fileID: 1270048676920603340, guid: f6cee176d9f68fa48bd37a1bd12143a3, type: 3}
+  - {fileID: 1270048676920603340, guid: f6cee176d9f68fa48bd37a1bd12143a3, type: 3}
+  - {fileID: 1270048676920603340, guid: f6cee176d9f68fa48bd37a1bd12143a3, type: 3}
+  - {fileID: 1270048676920603340, guid: b6500037cccaef1449b0df3be67a99cb, type: 3}
+  - {fileID: 1270048676920603340, guid: b6500037cccaef1449b0df3be67a99cb, type: 3}
+  - {fileID: 1270048676920603340, guid: b6500037cccaef1449b0df3be67a99cb, type: 3}
+  - {fileID: 1270048676920603340, guid: b6500037cccaef1449b0df3be67a99cb, type: 3}
+  _characterStartingPosition:
+  - {x: 1, y: 2, z: 3}
+  - {x: 4, y: 5, z: 6}
+  - {x: 7, y: 8, z: 9}
+  - {x: 10, y: 11, z: 12}
+  - {x: 1.261, y: -0.702, z: 1.793}
+  - {x: 0.987, y: -0.702, z: 1.921}
+  - {x: 1.068, y: -0.552, z: 2.094}
+  - {x: 1.331, y: -0.552, z: 1.971}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  - {x: 10, y: 11, z: 12}
+  _characterStartingRotation:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: -38.1, y: 25, z: 0}
+  - {x: -38.1, y: 25, z: 0}
+  - {x: -38.1, y: 25, z: 0}
+  - {x: -38.1, y: 25, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  PlayerClone:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

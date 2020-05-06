@@ -10,9 +10,9 @@ public class GameplayData : MonoBehaviour
     [SerializeField] private GameObject[] _characterPrefabObject;
     [SerializeField] private Vector3[] _characterStartingPosition;
     [SerializeField] private Vector3[] _characterStartingRotation;
-       
+    public GameObject[] PlayerClone;  
 
-    private void SettingInspectorValues()
+    public void SettingInspectorValues()
     {
         var AllPlayerClones=new GameObject();
         AllPlayerClones.name = "AllPlayerClones";
@@ -20,10 +20,11 @@ public class GameplayData : MonoBehaviour
 
         for (int i = 0; i < _size; i++)
         {
-            var PlayerClone = GameObject.Instantiate(_characterPrefabObject[i]);
-            PlayerClone.transform.parent = GameObject.Find("AllPlayerClones").transform;
-            PlayerClone.transform.localPosition = _characterStartingPosition[i];
-            PlayerClone.transform.rotation = Quaternion.Euler(_characterStartingRotation[i]);
+            PlayerClone[i] = GameObject.Instantiate(_characterPrefabObject[i]);
+            _characterPrefabObject[i].name = _name[i];
+            PlayerClone[i].transform.parent = GameObject.Find("AllPlayerClones").transform;
+            PlayerClone[i].transform.localPosition = _characterStartingPosition[i];
+            PlayerClone[i].transform.rotation = Quaternion.Euler(_characterStartingRotation[i]);
         }
     }
 

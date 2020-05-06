@@ -18,29 +18,50 @@ public class GamePlay : MonoBehaviour
     bool purplePlayersOnStartingPosition;
     bool purplePlayersTurn;
 
+    bool prokockano;
+
+    public GameplayData gameplayData;
+
+
     void Start()
     {
         redPlayersOnStartingPosition = true;
         redPlayersTurn = true;
+        prokockano = false;
+        StartCoroutine(LateStart(0.1f));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator LateStart(float waitTime)
     {
-        if (redPlayersOnStartingPosition & redPlayersTurn)
-        {
-            Debug.Log("Prokockaj!");
-        }
+        yield return new WaitForSeconds(waitTime);
+        StartCoroutine(MainFlowRoutine());
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void OnButtonClick()
     {
-        numberOnDice = Random.Range(1, 6);
+        numberOnDice = Random.Range(1, 7);
         Debug.Log(numberOnDice);
+        prokockano = true;
     }
 
-    //private bool FirstDiceRoll(bool position, bool turn)
-    //{
-    //    return position;
-    //}
+    private IEnumerator MainFlowRoutine()
+    {
+        if (redPlayersOnStartingPosition & redPlayersTurn)
+        {
+            Debug.Log("Prokockaj!");
+            yield return new WaitWhile(()=>prokockano==false);
+        }
+        numberOnDice = 6;
+        if (numberOnDice == 6)
+        {
+            
+        }
+
+        yield return 0;
+    }
 }
