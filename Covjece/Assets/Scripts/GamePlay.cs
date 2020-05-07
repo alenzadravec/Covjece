@@ -19,16 +19,22 @@ public class GamePlay : MonoBehaviour
     bool purplePlayersTurn;
 
     bool prokockano;
+    GameObject[] playerClones;
 
-    public GameplayData gameplayData;
-
-
-    void Start()
+    Vector3 newPlayerFieldRed = new Vector3(0.397f,-0.945f,1.923f);
+    private void Start()
     {
         redPlayersOnStartingPosition = true;
         redPlayersTurn = true;
         prokockano = false;
         StartCoroutine(LateStart(0.1f));
+
+        #region Referenciranje iz druge skripte
+        GameObject GameplayDataInScene = GameObject.Find("GameplayData");
+        GameplayData gameplayData = GameplayDataInScene.GetComponent<GameplayData>();
+        playerClones = gameplayData.PlayerClone;
+        #endregion
+
     }
 
     IEnumerator LateStart(float waitTime)
@@ -59,7 +65,7 @@ public class GamePlay : MonoBehaviour
         numberOnDice = 6;
         if (numberOnDice == 6)
         {
-            
+            playerClones[5].transform.position = newPlayerFieldRed;
         }
 
         yield return 0;

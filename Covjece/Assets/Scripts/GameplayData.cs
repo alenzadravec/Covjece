@@ -18,7 +18,8 @@ public class GameplayData : MonoBehaviour
         AllPlayerClones.name = "AllPlayerClones";
         AllPlayerClones.transform.parent = GameObject.Find("MainRootClones").transform;
 
-        for (int i = 0; i < _size; i++)
+        
+        for (int i=0 ; i < _size; i++)
         {
             PlayerClone[i] = GameObject.Instantiate(_characterPrefabObject[i]);
             _characterPrefabObject[i].name = _name[i];

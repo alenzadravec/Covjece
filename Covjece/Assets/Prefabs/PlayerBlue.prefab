@@ -193,7 +193,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1270048676920603341}
   - component: {fileID: 114138234656710656}
-  - component: {fileID: 114024171407812582}
   m_Layer: 0
   m_Name: PlayerBlue
   m_TagString: Untagged
@@ -230,22 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414d1643a4ce6cf468646efcb353115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114024171407812582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270048676920603340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcc195077de4ad48949ce360c756400, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 0
-  MyPath: {fileID: 2054344304616789243, guid: f2807473f46f26341ac1b90784b6c40d, type: 3}
-  Speed: 1
-  MaxDistanceToGoal: 0.1
 --- !u!1 &1270048677158798569
 GameObject:
   m_ObjectHideFlags: 0
