@@ -3178,6 +3178,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.27
       objectReference: {fileID: 0}
+    - target: {fileID: 6096377070213292669, guid: 6d5880963beb6684a8ea13f2ffc07a0b,
+        type: 3}
+      propertyPath: m_Name
+      value: NewPlayerFieldGreen
+      objectReference: {fileID: 0}
     - target: {fileID: 6096377070328275477, guid: 6d5880963beb6684a8ea13f2ffc07a0b,
         type: 3}
       propertyPath: m_LocalPosition.y
