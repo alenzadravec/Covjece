@@ -34,11 +34,11 @@ public class FollowPaths : MonoBehaviour
         }
         transform.position = pointInPath.Current.position;
     }
-    public void Update()
+    public IEnumerator MovingThroughtPath()
     {
         if (pointInPath == null || pointInPath.Current == null)
         {
-            return;
+            yield break;
         }
 
         if (Type == MovementType.MoveTowards)

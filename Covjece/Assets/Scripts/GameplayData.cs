@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class GameplayData : MonoBehaviour
 {
-    public int _size;
+    public int _playerClonesSize;
+    public int _pathNodesSize;
 
     [SerializeField] private string[] _name;
-    [SerializeField] private GameObject[] _characterPrefabObject;
+    [SerializeField] private GameObject[] _playerCharacterPrefabObject;
+    [SerializeField] private GameObject[] _nodesCharacterPrefabObject;
     [SerializeField] private Vector3[] _characterStartingPosition;
     [SerializeField] private Vector3[] _characterStartingRotation;
-    public GameObject[] PlayerClone;  
+    [SerializeField] private Vector3[] _nodeStartingPosition;
+    [SerializeField] private Vector3[] _nodeStartingRotation;
+    public GameObject[] PlayerClone;
+    public GameObject[] PathNodes;
 
     public void SettingInspectorValues()
     {
@@ -18,14 +23,28 @@ public class GameplayData : MonoBehaviour
         AllPlayerClones.name = "AllPlayerClones";
         AllPlayerClones.transform.parent = GameObject.Find("MainRootClones").transform;
 
-        
-        for (int i=0 ; i < _size; i++)
+        var AllPathNodes = new GameObject();
+        AllPathNodes.name = "AllPathNodes";
+        AllPathNodes.transform.parent = GameObject.Find("MainRootClones").transform;
+
+
+        for (int i=0 ; i < _playerClonesSize; i++)
         {
-            PlayerClone[i] = GameObject.Instantiate(_characterPrefabObject[i]);
-            _characterPrefabObject[i].name = _name[i];
+            _playerCharacterPrefabObject[i].name = _name[i];
+            PlayerClone[i] = GameObject.Instantiate(_playerCharacterPrefabObject[i]);
             PlayerClone[i].transform.parent = GameObject.Find("AllPlayerClones").transform;
             PlayerClone[i].transform.localPosition = _characterStartingPosition[i];
             PlayerClone[i].transform.rotation = Quaternion.Euler(_characterStartingRotation[i]);
+        }
+
+        for (int i = 0; i < _pathNodesSize; i++)
+        {
+            //Debug.Log(i);
+            _nodesCharacterPrefabObject[i].name = i.ToString();
+            PathNodes[i] = GameObject.Instantiate(_nodesCharacterPrefabObject[i]);
+            PathNodes[i].transform.parent = GameObject.Find("AllPathNodes").transform;
+            PathNodes[i].transform.localPosition = _nodeStartingPosition[i];
+            PathNodes[i].transform.rotation = Quaternion.Euler(_nodeStartingRotation[i]);
         }
     }
 
