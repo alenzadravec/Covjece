@@ -16,6 +16,7 @@ public class GameplayData : MonoBehaviour
     [SerializeField] private Vector3[] _nodeStartingRotation;
     public GameObject[] PlayerClone;
     public GameObject[] PathNodes;
+    public Vector3[] charStartPos;
 
     public void SettingInspectorValues()
     {
@@ -35,6 +36,7 @@ public class GameplayData : MonoBehaviour
             PlayerClone[i].transform.parent = GameObject.Find("AllPlayerClones").transform;
             PlayerClone[i].transform.localPosition = _characterStartingPosition[i];
             PlayerClone[i].transform.rotation = Quaternion.Euler(_characterStartingRotation[i]);
+            charStartPos[i] = PlayerClone[i].transform.localPosition;
         }
 
         for (int i = 0; i < _pathNodesSize; i++)
