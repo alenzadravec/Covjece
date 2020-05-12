@@ -315,7 +315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d0d40835502bc4b993a05eae4c5289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   playerClonesStartingPosition: []
 --- !u!1 &108874576
 GameObject:
@@ -2546,7 +2545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d0d40835502bc4b993a05eae4c5289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 114633615829550594, guid: fdbaf7c4c280c454f9a3feb99eb15085, type: 3}
   playerClonesStartingPosition:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -2794,7 +2792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea59609e0779fe4b8960d548893f065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentlyClickedNode: {fileID: 0}
 --- !u!1 &1717343830
 GameObject:
   m_ObjectHideFlags: 0

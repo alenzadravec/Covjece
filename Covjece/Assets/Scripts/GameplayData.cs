@@ -41,6 +41,7 @@ public class GameplayData : MonoBehaviour
 
         for (int i = 0; i < _pathNodesSize; i++)
         {
+            //Debug.Log(i);
             _nodesCharacterPrefabObject[i].name = i.ToString();
             PathNodes[i] = GameObject.Instantiate(_nodesCharacterPrefabObject[i]);
             PathNodes[i].transform.parent = GameObject.Find("AllPathNodes").transform;
