@@ -14,6 +14,7 @@ public class GameplayData : MonoBehaviour
     [SerializeField] private Vector3[] _characterStartingRotation;
     [SerializeField] private Vector3[] _nodeStartingPosition;
     [SerializeField] private Vector3[] _nodeStartingRotation;
+    //public Vector3[] PlayersCurrentPosition;
     public GameObject[] PlayerClone;
     public GameObject[] PathNodes;
     public Vector3[] charStartPos;
@@ -37,11 +38,12 @@ public class GameplayData : MonoBehaviour
             PlayerClone[i].transform.localPosition = _characterStartingPosition[i];
             PlayerClone[i].transform.rotation = Quaternion.Euler(_characterStartingRotation[i]);
             charStartPos[i] = PlayerClone[i].transform.localPosition;
+            //PlayersCurrentPosition[i] = _characterStartingPosition[i];
+            
         }
 
         for (int i = 0; i < _pathNodesSize; i++)
         {
-            //Debug.Log(i);
             _nodesCharacterPrefabObject[i].name = i.ToString();
             PathNodes[i] = GameObject.Instantiate(_nodesCharacterPrefabObject[i]);
             PathNodes[i].transform.parent = GameObject.Find("AllPathNodes").transform;

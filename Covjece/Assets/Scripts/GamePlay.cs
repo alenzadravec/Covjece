@@ -6,15 +6,18 @@ public class GamePlay : MonoBehaviour
 {
     int numberOnDice;
     bool prokockano;
-
-    bool playerOnStart;
     bool diceSix;
+
+    bool playerInStartHouse;
+    bool playerOnStart;
     bool playerOnBoard;
-    bool morePlayersOnBoard;
+    bool playerAtFinish;
 
     GameObject[] playerClones;
     GameObject[] pathNodes;
     public Vector3[] playerClonesStartingPosition;
+    //public Vector3[] ostaliIgraci;
+    //public int[] ostaliIgraci;
 
 
     Vector3 newPlayerFieldRed = new Vector3(0.397f,-0.945f,1.923f);
@@ -34,12 +37,13 @@ public class GamePlay : MonoBehaviour
         #endregion
       
         StartCoroutine(RedTurn());
-
-    }
+        
+}
 
     public void OnButtonClick()
     {
         numberOnDice = Random.Range(1, 7);
+        numberOnDice = 6;
         Debug.Log(numberOnDice);
         prokockano = true;
     }
@@ -53,92 +57,87 @@ public class GamePlay : MonoBehaviour
         return (currentNode + numberOnDice-1);
     }
 
+
     private void RoundCheck(string colorTurn)
     {
-        if (numberOnDice == 6) {diceSix = true;}
+        if (numberOnDice == 6) { diceSix = true; }
         if (colorTurn == "Red")
         {
             for (int i = 4; i < 8; i++)
             {
                 if (playerClones[i].transform.position == newPlayerFieldRed)
                 {
-                    playerOnStart = true;
+                    playerClones[i].GetComponent<PlayerClass>().playerInStartHouse = false;
+                    playerClones[i].GetComponent<PlayerClass>().playerOnStart = true;
+                    playerClones[i].GetComponent<PlayerClass>().playerOnBoard = false;
+                    playerClones[i].GetComponent<PlayerClass>().playerAtFinish = false;
                 }
-                int playerCounter = 0;
-                if (playerClones[i].transform.position != playerClonesStartingPosition[i])
+                if (playerClones[i].transform.position == playerClonesStartingPosition[i])
                 {
-                    playerCounter++;
-                    playerOnBoard = true;
-                }
-                if (playerCounter > 1)
-                {
-                    morePlayersOnBoard = true;
+                    playerClones[i].GetComponent<PlayerClass>().playerInStartHouse = true;
+                    playerClones[i].GetComponent<PlayerClass>().playerOnStart = false;
+                    playerClones[i].GetComponent<PlayerClass>().playerOnBoard = false;
+                    playerClones[i].GetComponent<PlayerClass>().playerAtFinish = false;
                 }
             }
         }
         else if (colorTurn == "Blue")
         {
+            for (int i = 0; i < 4; i++)
             {
-                for (int i = 0; i < 4; i++)
+                if (playerClones[i].transform.position == newPlayerFieldRed)
                 {
-                    if (playerClones[i].transform.position == newPlayerFieldBlue)
-                    {
-                        playerOnStart = true;
-                    }
-                    int playerCounter = 0;
-                    if (playerClones[i].transform.position != playerClonesStartingPosition[i])
-                    {
-                        playerCounter++;
-                        playerOnBoard = true;
-                    }
-                    if (playerCounter > 1)
-                    {
-                        morePlayersOnBoard = true;
-                    }
+                    playerInStartHouse = false;
+                    playerOnStart = true;
+                    playerOnBoard = false;
+                    playerAtFinish = false;
+                }
+                if (playerClones[i].transform.position == playerClonesStartingPosition[i])
+                {
+                    playerInStartHouse = true;
+                    playerOnStart = false;
+                    playerOnBoard = false;
+                    playerAtFinish = false;
                 }
             }
         }
         else if (colorTurn == "Green")
         {
+            for (int i = 12; i < 16; i++)
             {
-                for (int i = 12; i < 16; i++)
+                if (playerClones[i].transform.position == newPlayerFieldRed)
                 {
-                    if (playerClones[i].transform.position == newPlayerFieldGreen)
-                    {
-                        playerOnStart = true;
-                    }
-                    int playerCounter = 0;
-                    if (playerClones[i].transform.position != playerClonesStartingPosition[i])
-                    {
-                        playerCounter++;
-                        playerOnBoard = true;
-                    }
-                    if (playerCounter > 1)
-                    {
-                        morePlayersOnBoard = true;
-                    }
+                    playerInStartHouse = false;
+                    playerOnStart = true;
+                    playerOnBoard = false;
+                    playerAtFinish = false;
+                }
+                if (playerClones[i].transform.position == playerClonesStartingPosition[i])
+                {
+                    playerInStartHouse = true;
+                    playerOnStart = false;
+                    playerOnBoard = false;
+                    playerAtFinish = false;
                 }
             }
         }
         else if (colorTurn == "Purple")
         {
+            for (int i = 8; i < 12; i++)
             {
-                for (int i = 8; i < 12; i++)
+                if (playerClones[i].transform.position == newPlayerFieldRed)
                 {
-                    if (playerClones[i].transform.position == newPlayerFieldPurple)
-                    {
-                        playerOnStart = true;
-                    }
-                    int playerCounter = 0;
-                    if (playerClones[i].transform.position != playerClonesStartingPosition[i])
-                    {
-                        playerCounter++;
-                        playerOnBoard = true;
-                    }
-                    if (playerCounter > 1)
-                    {
-                        morePlayersOnBoard = true;
-                    }
+                    playerInStartHouse = false;
+                    playerOnStart = true;
+                    playerOnBoard = false;
+                    playerAtFinish = false;
+                }
+                if (playerClones[i].transform.position == playerClonesStartingPosition[i])
+                {
+                    playerInStartHouse = true;
+                    playerOnStart = false;
+                    playerOnBoard = false;
+                    playerAtFinish = false;
                 }
             }
         }
@@ -155,19 +154,19 @@ public class GamePlay : MonoBehaviour
             int currentNode=0;
             int startingNode=0;
 
-            if (diceSix)
-            {
-                playerClones[4].transform.position = newPlayerFieldRed;
-                prokockano = false;
-                StartCoroutine(RedTurn());
-            }
-            else
-            {
-                currentNode += DistanceNode(currentNode,numberOnDice);
-                playerClones[4].transform.position = pathNodes[currentNode].transform.position;
-                prokockano = false;
-                GreenTurn();
-        }
+        //if (diceSix)
+        //{
+        //    playerClones[4].transform.position = newPlayerFieldRed;
+        //    prokockano = false;
+        //    StartCoroutine(RedTurn());
+        //}
+        //    else
+        //    {
+        //        currentNode += DistanceNode(currentNode,numberOnDice);
+        //        playerClones[4].transform.position = pathNodes[currentNode].transform.position;
+        //        prokockano = false;
+        //        GreenTurn();
+        //}
     }
     private void GreenTurn()
     {
