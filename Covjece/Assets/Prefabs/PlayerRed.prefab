@@ -192,6 +192,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1270048676920603341}
+  - component: {fileID: 114633615829550594}
+  - component: {fileID: 3100461326426791847}
   m_Layer: 0
   m_Name: PlayerRed
   m_TagString: Untagged
@@ -216,6 +218,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114633615829550594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270048676920603340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed1f48d780455f46a656f456be8211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ableToClick: 0
+  currentlyClickedPlayer: {fileID: 1270048676920603340}
+--- !u!136 &3100461326426791847
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270048676920603340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.5348248
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.13323218, z: 0}
 --- !u!1 &1270048677158798569
 GameObject:
   m_ObjectHideFlags: 0
