@@ -230,7 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInStartHouse: 0
-  playerOnStart: 0
   playerOnBoard: 0
   playerAtFinish: 0
   currentNode: {x: 0, y: 0, z: 0}

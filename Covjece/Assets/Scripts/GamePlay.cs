@@ -9,7 +9,7 @@ public class GamePlay : MonoBehaviour
     bool diceSix;
 
     bool playerInStartHouse;
-    bool playerOnStart;
+    public bool playerOnStart;
     bool playerOnBoard;
     bool playerAtFinish;
 
@@ -60,23 +60,29 @@ public class GamePlay : MonoBehaviour
 
     private void RoundCheck(string colorTurn)
     {
-        if (numberOnDice == 6) { diceSix = true; }
+        if (numberOnDice == 6) { diceSix = true; }else { diceSix = false; }
         if (colorTurn == "Red")
         {
             for (int i = 4; i < 8; i++)
             {
                 if (playerClones[i].transform.position == newPlayerFieldRed)
-                {
+                { //ako je na startnoj poziciji
                     playerClones[i].GetComponent<PlayerClass>().playerInStartHouse = false;
-                    playerClones[i].GetComponent<PlayerClass>().playerOnStart = true;
+                    playerOnStart = true;
                     playerClones[i].GetComponent<PlayerClass>().playerOnBoard = false;
                     playerClones[i].GetComponent<PlayerClass>().playerAtFinish = false;
                 }
                 if (playerClones[i].transform.position == playerClonesStartingPosition[i])
-                {
+                { //ako je u kučici
                     playerClones[i].GetComponent<PlayerClass>().playerInStartHouse = true;
-                    playerClones[i].GetComponent<PlayerClass>().playerOnStart = false;
                     playerClones[i].GetComponent<PlayerClass>().playerOnBoard = false;
+                    playerClones[i].GetComponent<PlayerClass>().playerAtFinish = false;
+                }
+                //if(){} ako je na finishu
+                else if (playerClones[i].transform.position != newPlayerFieldRed & playerClones[i].transform.position != playerClonesStartingPosition[i])
+                {//DODATI I AKO NIJE NA FINISHU, AKO NIJE NIGDJE DRUGDJE ONDA JE NA PLOČI
+                    playerClones[i].GetComponent<PlayerClass>().playerInStartHouse = false;
+                    playerClones[i].GetComponent<PlayerClass>().playerOnBoard = true;
                     playerClones[i].GetComponent<PlayerClass>().playerAtFinish = false;
                 }
             }
@@ -151,38 +157,54 @@ public class GamePlay : MonoBehaviour
             yield return new WaitWhile(() => prokockano == false);
             RoundCheck("Red");
             StartCoroutine(WaitingTime(1));
-           
+            
 
         if (diceSix)
         {
             for (int i = 4; i < 8; i++)
             {
-                //ako dobije 6 i nema igrača na startnom polju može pomaknuti bilo kojeg igrača
-                if (playerClones[i].GetComponent<PlayerClass>().playerOnStart != true)
-                {
-                    playerClones[i].GetComponent<CapsuleCollider>().enabled = true;
-                    Debug.Log("Izaberi igrača!");
 
+                //ako dobije 6 i nema igrača na startnom polju može pomaknuti bilo kojeg igrača
+                if (playerOnStart != true)
+                {
+                    Debug.Log("Izaberi igrača!");
                     yield return new WaitForSeconds(3f);
 
                     if (playerClones[i].GetComponent<PlayerClass>().playerInStartHouse == true & playerClones[i].GetComponent<PlayerClass>().clicked)
                     {
-                        yield return new WaitForSeconds(1);
-                        playerClones[i].transform.position = newPlayerFieldRed;
-                        playerClones[i].GetComponent<PlayerClass>().clicked = false;
-                        yield return new WaitForSeconds(1);
-                        //ako su tijekom toga u kučici stavi na startnu poziciju
+                        //ako je u kučici,ako kliknemo na njega i ako nitko nije na startnoj poziciji
 
+                        playerClones[i].transform.position = newPlayerFieldRed;
+                        playerClones[i].GetComponent<PlayerClass>().playerInStartHouse = false;
+                        playerOnStart = true;
+                        playerClones[i].GetComponent<PlayerClass>().clicked = false;
+                        //ako su tijekom toga u kučici stavi na startnu poziciju i postavi da je mjesto zauzeto
                     }
-                    else if (playerClones[i].GetComponent<PlayerClass>().playerInStartHouse == true & playerClones[i].GetComponent<PlayerClass>().clicked)
+                }
+                else if (playerOnStart)
+                {
+                    Debug.Log("Izaberi igrača!");
+                    yield return new WaitForSeconds(3f);
+
+                    if (playerClones[i].GetComponent<PlayerClass>().clicked)
                     {
-                        //currentNode += DistanceNode(currentNode, numberOnDice);
-                        //playerClones[i].transform.position = pathNodes[currentNode].transform.position; //idi 6 polja naprijed
+                        playerClones[i].transform.position = pathNodes[5].transform.position;
+                        Debug.Log("Idem 6 polja naprijed!");
+                        playerOnStart = false;
                     }
+                    //currentNode += DistanceNode(currentNode, numberOnDice);
+                    //playerClones[i].transform.position = pathNodes[currentNode].transform.position; //idi 6 polja naprijed
                 }
             }
             prokockano = false;
+            yield return new WaitForSeconds(1f);
             StartCoroutine(RedTurn());
+        }
+        else
+        {
+            Debug.Log("Nije 6");
+            prokockano = false;
+            GreenTurn();
         }
         //    else
         //    {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerClass : MonoBehaviour
 {
     public bool playerInStartHouse;
-    public bool playerOnStart;
     public bool playerOnBoard;
     public bool playerAtFinish;
     public Vector3 currentNode;
@@ -15,12 +14,12 @@ public class PlayerClass : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Kliknuto!!");
-            player = gameObject;
-            Debug.Log(player);
-            clicked = true;
-        }
-    }
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Kliknuto!!");
+                player = gameObject;
+                Debug.Log(player);
+                clicked = true;
+            }
+    }  
 }
