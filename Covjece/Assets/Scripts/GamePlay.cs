@@ -16,6 +16,8 @@ public class GamePlay : MonoBehaviour
     GameObject[] playerClones;
     GameObject[] pathNodes;
     public Vector3[] playerClonesStartingPosition;
+    PlayerClass playerClass;
+    GameObject player;
     //public Vector3[] ostaliIgraci;
     //public int[] ostaliIgraci;
 
@@ -35,9 +37,7 @@ public class GamePlay : MonoBehaviour
         playerClonesStartingPosition = gameplayData.charStartPos;
         pathNodes = gameplayData.PathNodes;
         #endregion
-      
-        StartCoroutine(RedTurn());
-        
+        StartCoroutine(RedTurn());  
 }
 
     public void OnButtonClick()
@@ -47,16 +47,16 @@ public class GamePlay : MonoBehaviour
         Debug.Log(numberOnDice);
         prokockano = true;
     }
-    private IEnumerator WaitingTime()
+    private IEnumerator WaitingTime(float time)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
     }
 
     private int DistanceNode(int currentNode, int numberOnDice)
     {
+
         return (currentNode + numberOnDice-1);
     }
-
 
     private void RoundCheck(string colorTurn)
     {
@@ -147,19 +147,43 @@ public class GamePlay : MonoBehaviour
     private IEnumerator RedTurn()
     {
             Debug.Log("Crveni na redu!!");
-            RoundCheck("Red");
             Debug.Log("Prokockaj!");
             yield return new WaitWhile(() => prokockano == false);
-            StartCoroutine(WaitingTime());
-            int currentNode=0;
-            int startingNode=0;
+            RoundCheck("Red");
+            StartCoroutine(WaitingTime(1));
+           
 
-        //if (diceSix)
-        //{
-        //    playerClones[4].transform.position = newPlayerFieldRed;
-        //    prokockano = false;
-        //    StartCoroutine(RedTurn());
-        //}
+        if (diceSix)
+        {
+            for (int i = 4; i < 8; i++)
+            {
+                //ako dobije 6 i nema igrača na startnom polju može pomaknuti bilo kojeg igrača
+                if (playerClones[i].GetComponent<PlayerClass>().playerOnStart != true)
+                {
+                    playerClones[i].GetComponent<CapsuleCollider>().enabled = true;
+                    Debug.Log("Izaberi igrača!");
+
+                    yield return new WaitForSeconds(3f);
+
+                    if (playerClones[i].GetComponent<PlayerClass>().playerInStartHouse == true & playerClones[i].GetComponent<PlayerClass>().clicked)
+                    {
+                        yield return new WaitForSeconds(1);
+                        playerClones[i].transform.position = newPlayerFieldRed;
+                        playerClones[i].GetComponent<PlayerClass>().clicked = false;
+                        yield return new WaitForSeconds(1);
+                        //ako su tijekom toga u kučici stavi na startnu poziciju
+
+                    }
+                    else if (playerClones[i].GetComponent<PlayerClass>().playerInStartHouse == true & playerClones[i].GetComponent<PlayerClass>().clicked)
+                    {
+                        //currentNode += DistanceNode(currentNode, numberOnDice);
+                        //playerClones[i].transform.position = pathNodes[currentNode].transform.position; //idi 6 polja naprijed
+                    }
+                }
+            }
+            prokockano = false;
+            StartCoroutine(RedTurn());
+        }
         //    else
         //    {
         //        currentNode += DistanceNode(currentNode,numberOnDice);
@@ -172,9 +196,9 @@ public class GamePlay : MonoBehaviour
     {
             RoundCheck("Green");
             Debug.Log("Zeleni na redu!!");
-            StartCoroutine(WaitingTime());
+            StartCoroutine(WaitingTime(1));
             OnButtonClick();
-            StartCoroutine(WaitingTime());  
+            StartCoroutine(WaitingTime(1));  
             Debug.Log("Bacio!!");
 
             if (numberOnDice == 6)
@@ -194,9 +218,9 @@ public class GamePlay : MonoBehaviour
     {
         RoundCheck("Blue");
         Debug.Log("Plavi na redu!!");
-        StartCoroutine(WaitingTime());
+        StartCoroutine(WaitingTime(1));
         OnButtonClick();
-        StartCoroutine(WaitingTime());
+        StartCoroutine(WaitingTime(1));
         Debug.Log("Bacio!!");    
 
         if (numberOnDice == 6)
@@ -216,9 +240,9 @@ public class GamePlay : MonoBehaviour
     {
         RoundCheck("Purple");
         Debug.Log("Ljubicasti na redu!!");
-        StartCoroutine(WaitingTime());
+        StartCoroutine(WaitingTime(1));
         OnButtonClick();
-        StartCoroutine(WaitingTime());
+        StartCoroutine(WaitingTime(1));
         Debug.Log("Bacio!!");
 
         if (numberOnDice == 6)
