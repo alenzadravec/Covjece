@@ -28,6 +28,8 @@ public class GameplayData : MonoBehaviour
         var AllPathNodes = new GameObject();
         AllPathNodes.name = "AllPathNodes";
         AllPathNodes.transform.parent = GameObject.Find("MainRootClones").transform;
+        AllPathNodes.AddComponent<Route>();
+        
 
 
         for (int i=0 ; i < _playerClonesSize; i++)
