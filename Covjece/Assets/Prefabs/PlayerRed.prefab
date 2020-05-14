@@ -233,7 +233,7 @@ MonoBehaviour:
   playerInStartHouse: 0
   playerOnBoard: 0
   playerAtFinish: 0
-  currentNode: 0
+  currentNode: {x: 0, y: 0, z: 0}
   clicked: 0
   player: {fileID: 0}
 --- !u!136 &136545972544699606
