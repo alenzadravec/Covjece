@@ -7,7 +7,7 @@ public class PlayerClass : MonoBehaviour
     public bool playerInStartHouse;
     public bool playerOnBoard;
     public bool playerAtFinish;
-    public Vector3 currentNode;
+    public int currentNode;
     public bool clicked = false;
     public GameObject player;
     GamePlay gamePlay;
