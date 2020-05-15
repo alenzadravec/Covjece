@@ -29,8 +29,6 @@ public class GameplayData : MonoBehaviour
         AllPathNodes.name = "AllPathNodes";
         AllPathNodes.transform.parent = GameObject.Find("MainRootClones").transform;
         AllPathNodes.AddComponent<Route>();
-        
-
 
         for (int i=0 ; i < _playerClonesSize; i++)
         {
@@ -40,8 +38,6 @@ public class GameplayData : MonoBehaviour
             PlayerClone[i].transform.localPosition = _characterStartingPosition[i];
             PlayerClone[i].transform.rotation = Quaternion.Euler(_characterStartingRotation[i]);
             charStartPos[i] = PlayerClone[i].transform.localPosition;
-            //PlayersCurrentPosition[i] = _characterStartingPosition[i];
-            
         }
 
         for (int i = 0; i < _pathNodesSize; i++)
@@ -51,6 +47,7 @@ public class GameplayData : MonoBehaviour
             PathNodes[i].transform.parent = GameObject.Find("AllPathNodes").transform;
             PathNodes[i].transform.localPosition = _nodeStartingPosition[i];
             PathNodes[i].transform.rotation = Quaternion.Euler(_nodeStartingRotation[i]);
+            PathNodes[i].AddComponent<Node>();
         }
     }
 
