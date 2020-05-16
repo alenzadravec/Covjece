@@ -275,8 +275,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 1301381025}
+        m_MethodName: Prokockaj
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 2088019641}
+  startNode: {fileID: 1956103073}
   baseNode: {fileID: 0}
   goalNode: {fileID: 0}
   startNodeIndex: 0
@@ -2601,7 +2601,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301381024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.3186562, y: 0.2045861, z: 0.07064437, w: 0.9228284}
   m_LocalPosition: {x: -2.73, y: 0.134, z: 3.54}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
@@ -2611,7 +2611,7 @@ Transform:
   - {fileID: 1204098956}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -38.1, y: 25, z: 0}
 --- !u!1001 &1375101225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3786,6 +3786,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea59609e0779fe4b8960d548893f065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1956103073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7495752339158392204, guid: ce975f5974d168e47ac26d6db6e4febd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1375101225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1982585665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,18 +3977,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2088019641 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5552690574794247255, guid: ce975f5974d168e47ac26d6db6e4febd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1375101225}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2117948242 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5168566420489104133, guid: 3900eb09954747049bbd7b60acb8eb3a,

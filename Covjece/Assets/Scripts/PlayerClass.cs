@@ -18,6 +18,9 @@ public class PlayerClass : MonoBehaviour
     int routePosition;
     public int startNodeIndex;
 
+    int steps;//Dice amount(rolled)
+    int doneSteps;
+
     [Header("Bool")]
     public bool isOut;
     bool isMoving;
@@ -29,12 +32,10 @@ public class PlayerClass : MonoBehaviour
     private void Start()
     {
         startNodeIndex = commonRoute.RequestPosition(startNode.gameObject.transform);
-        Debug.Log(startNodeIndex);
         CreateFullRoute();
     }
     void CreateFullRoute()
     {
-        Debug.Log(startNodeIndex);
         for (int i = 0; i < commonRoute.childNodeList.Count; i++)
         {
             int tempPos;
@@ -48,5 +49,50 @@ public class PlayerClass : MonoBehaviour
         {
             fullRoute.Add(finalRoute.childNodeList[i].GetComponent<Node>());
         }
+    }
+
+    public void Prokockaj()
+    {
+        if (!isMoving)
+        {
+            steps = Random.RandomRange(1, 7);
+            Debug.Log("Broj na kockici: " + steps);
+            if (doneSteps + steps < fullRoute.Count)
+            {
+                StartCoroutine(Move());
+            }
+            else
+            {
+                Debug.Log("Broj prevelik");
+            }
+        }
+    }
+    IEnumerator Move()
+    {
+        if (isMoving)
+        {
+            yield break;
+        }
+
+        isMoving = true;
+
+        while (steps > 0)
+        {
+            routePosition++;
+
+            Vector3 nextPos = fullRoute[routePosition].gameObject.transform.position;
+
+            while (MoveToNextNode(nextPos, 8f)) { yield return null; }
+
+            yield return new WaitForSeconds(.1f);
+            steps--;
+            doneSteps++;
+        }
+        isMoving = false;
+    }
+
+    bool MoveToNextNode(Vector3 goalPos, float speed)
+    {
+        return goalPos != (transform.position = Vector3.MoveTowards(transform.position, goalPos, speed * Time.deltaTime));
     }
 }
