@@ -50,7 +50,7 @@ public class PlayerClass : MonoBehaviour
             fullRoute.Add(finalRoute.childNodeList[i].GetComponent<Node>());
         }
     }
-
+  
     public void Prokockaj()
     {
         if (!isMoving)
