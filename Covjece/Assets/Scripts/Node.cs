@@ -5,6 +5,5 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     bool isTaken;
-
-
+    public PlayerClass PlayerClass;
 }

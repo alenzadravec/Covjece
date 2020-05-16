@@ -230,12 +230,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1f48d780455f46a656f456be8211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInStartHouse: 0
-  playerOnBoard: 0
-  playerAtFinish: 0
-  currentNode: {x: 0, y: 0, z: 0}
-  clicked: 0
-  player: {fileID: 0}
+  commonRoute: {fileID: 569884777857961917, guid: ce975f5974d168e47ac26d6db6e4febd,
+    type: 3}
+  finalRoute: {fileID: 89748384181683326, guid: 3900eb09954747049bbd7b60acb8eb3a,
+    type: 3}
+  fullRoute: []
+  startNode: {fileID: 6665639945668476613, guid: f8ca6b9a773fa754c82a4ac9606998c9,
+    type: 3}
+  baseNode: {fileID: 0}
+  goalNode: {fileID: 0}
+  startNodeIndex: 0
+  isOut: 0
+  selector: {fileID: 3400442120978021919}
 --- !u!1 &1270048677158798569
 GameObject:
   m_ObjectHideFlags: 0

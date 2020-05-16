@@ -30,9 +30,7 @@ public class Route : MonoBehaviour
     void FillNodes()
     {
         childNodeList.Clear();
-
         childNodes = GetComponentsInChildren<Transform>();
-
         foreach (Transform child in childNodes)
         {
             if (child != this.transform)
