@@ -14,6 +14,7 @@ public class PlayerClass : MonoBehaviour
     public Node startNode;
     public Node baseNode;
     public Node goalNode;
+    public Node currentNode;
 
     int routePosition;
     public int startNodeIndex;
@@ -94,5 +95,10 @@ public class PlayerClass : MonoBehaviour
     bool MoveToNextNode(Vector3 goalPos, float speed)
     {
         return goalPos != (transform.position = Vector3.MoveTowards(transform.position, goalPos, speed * Time.deltaTime));
+    }
+
+    public bool ReturnIsOut()
+    {
+        return isOut;
     }
 }

@@ -45,16 +45,73 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        switch (state)
+        if (playerList[activePlayer].playerType == Entity.PlayerTypes.CPU)
         {
-            case States.ROLL_DICE:
-                break;
+            switch (state)
+            {
+                case States.ROLL_DICE:
+                    {
+                        StartCoroutine(RollDiceDelay());
+                        state = States.WAITING;
+                    }
+                    break;
 
-            case States.WAITING:
-                break;
+                case States.WAITING:
+                    break;
 
-            case States.SWITCH_PLAYER:
+                case States.SWITCH_PLAYER:
+                    break;
+            }
+        }
+    }
+    void RollDice()
+    {
+        int diceNumber = Random.Range(1, 7);
+
+        if (diceNumber == 6)
+        {
+            //provjera da li je startna pozicija prazna
+        }
+        if (diceNumber < 6)
+        {
+            Debug.Log("Kockica: " + diceNumber);
+            //da li treba koga izbaciti
+        }
+    }
+    IEnumerator RollDiceDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        RollDice();
+    }
+
+    void CheckStartNode(int diceNumber)
+    {
+        //je li itko na startu
+        bool startNodeFull = false;
+        for (int i = 0; i < playerList[activePlayer].players.Length; i++)
+        {
+            if (playerList[activePlayer].players[i].currentNode == playerList[activePlayer].players[i].startNode)
+            {
+                startNodeFull = true;
                 break;
+            }
+        }
+        if (startNodeFull)
+        {
+            //pomakni igrača
+        }
+        else
+        {
+            for (int i = 0; i < playerList[activePlayer].players.Length; i++)
+            {
+                if (playerList[activePlayer].players[i].ReturnIsOut())
+                {
+                    //ako je jedan u bazi ide van
+                    state = States.WAITING;
+                    return;
+                }
+            }
+            //////
         }
     }
 }
