@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
     }
 
     void CheckStartNode(int diceNumber)
+
     {
         //je li itko na startu
         bool startNodeFull = false;
@@ -105,6 +106,7 @@ public class GameManager : MonoBehaviour
         if (startNodeFull)
         {
             //pomakni igrača
+
             Debug.Log("START node pun");
         }
         else
@@ -121,5 +123,49 @@ public class GameManager : MonoBehaviour
             }
             ////
         }
+    }
+
+    void MovePlayer(int diceNumber)
+    {
+        List<PlayerClass> movablePlayers = new List<PlayerClass>();
+        List<PlayerClass> moveKickPlayers = new List<PlayerClass>();
+
+        //napuniti liste
+        for (int i = 0; i < playerList[activePlayer].players.Length; i++)
+        {
+            if (playerList[activePlayer].players[i].ReturnIsOut())
+            {
+                //provjeri moguć izbačaj
+                if (playerList[activePlayer].players[i].CheckPossibleKick(playerList[activePlayer].players[i].stoneId, diceNumber))
+                {
+                    moveKickPlayers.Add(playerList[activePlayer].players[i]);
+                    continue;
+                }
+                //provjeri moguć novi položaj
+                if (playerList[activePlayer].players[i].CheckPossibleMove(diceNumber))
+                {
+                    movablePlayers.Add(playerList[activePlayer].players[i]);
+                }
+            }
+        }
+        //ako je moguće ruši
+        if (moveKickPlayers.Count > 0)
+        {
+            int num = Random.Range(0, moveKickPlayers.Count);
+            moveKickPlayers[num].StartTheMove(diceNumber);
+            state = States.WAITING;
+            return;
+        }
+        //ako je moguće pomakni se
+        if (movablePlayers.Count > 0)
+        {
+            int num = Random.Range(0, moveKickPlayers.Count);
+            moveKickPlayers[num].StartTheMove(diceNumber);
+            state = States.WAITING;
+            return;
+        }
+        //ništa nije moguće
+        //promjena igrača
+        Debug.Log("Promjenilo igrača!");
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerClass : MonoBehaviour
 {
-
+    public int stoneId;
     [Header("Routes")]
     public Route commonRoute;
     public Route finalRoute;
@@ -137,6 +137,7 @@ public class PlayerClass : MonoBehaviour
             //vrati se na start
         }
 
+
         goalNode.PlayerClass = this;
         goalNode.isTaken = true;
 
@@ -146,4 +147,37 @@ public class PlayerClass : MonoBehaviour
         GameManager.instance.state = GameManager.States.ROLL_DICE;
         isMoving = false;
     }
+    public bool CheckPossibleMove(int diceNumber)
+    {
+        int tempPos = routePosition + diceNumber;
+        if (tempPos >= fullRoute.Count)
+        {
+            return false;
+        }
+        return !fullRoute[tempPos].isTaken;
+    }
+
+    public bool CheckPossibleKick(int stoneID, int diceNumber)
+    {
+        int tempPos = routePosition + diceNumber;
+        if (tempPos >= fullRoute.Count)
+        {
+            return false;
+        }
+        if (fullRoute[tempPos].isTaken)
+        {
+            if (stoneID == fullRoute[tempPos].PlayerClass.stoneId)
+            {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+    public void StartTheMove(int diceNumber)
+    {
+
+    }
 }
+
+

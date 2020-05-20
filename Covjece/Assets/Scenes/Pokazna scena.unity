@@ -540,10 +540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1f48d780455f46a656f456be8211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoneId: 0
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1018084709}
+  startNode: {fileID: 953639823}
   baseNode: {fileID: 375980219}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -2390,6 +2391,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918642631}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &953639823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7495752339158392204, guid: ce975f5974d168e47ac26d6db6e4febd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1375101225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968806787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,18 +2586,6 @@ Transform:
   m_Father: {fileID: 110704950}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1018084709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5608608844555500995, guid: ce975f5974d168e47ac26d6db6e4febd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1375101225}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1048664847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,10 +3431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1f48d780455f46a656f456be8211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoneId: 0
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1018084709}
+  startNode: {fileID: 953639823}
   baseNode: {fileID: 1359708749}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -4906,10 +4908,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1f48d780455f46a656f456be8211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoneId: 0
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1018084709}
+  startNode: {fileID: 953639823}
   baseNode: {fileID: 1063172784}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -5054,10 +5057,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1f48d780455f46a656f456be8211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoneId: 0
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1018084709}
+  startNode: {fileID: 953639823}
   baseNode: {fileID: 1318335569}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -5416,7 +5420,7 @@ MonoBehaviour:
     hasTurn: 0
     playerType: 1
     hasWon: 0
-  state: 1
+  state: 0
   activePlayer: 0
 --- !u!4 &2094604140
 Transform:
