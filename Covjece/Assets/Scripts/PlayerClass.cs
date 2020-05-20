@@ -85,7 +85,7 @@ public class PlayerClass : MonoBehaviour
 
             while (MoveToNextNode(nextPos, 8f)) { yield return null; }
 
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(0.1f);
             steps--;
             doneSteps++;
         }
@@ -100,5 +100,50 @@ public class PlayerClass : MonoBehaviour
     public bool ReturnIsOut()
     {
         return isOut;
+    }
+
+    public void LeaveBase()
+    {
+        steps = 1;
+        isOut = true;
+        routePosition = 0;
+        StartCoroutine(MoveOut());
+
+    }
+
+    IEnumerator MoveOut()
+    {
+        if (isMoving)
+        {
+            yield break;
+        }
+
+        isMoving = true;
+
+        while (steps > 0)
+        {
+            //routePosition++;
+            Vector3 nextPos = fullRoute[routePosition].gameObject.transform.position;
+            while (MoveToNextNode(nextPos, 8f)) { yield return null; }
+            yield return new WaitForSeconds(0.1f);
+            steps--;
+            doneSteps++;
+        }
+        goalNode = fullRoute[routePosition];
+
+        //vrtinuti drugoga igrača
+        if (goalNode.isTaken)
+        {
+            //vrati se na start
+        }
+
+        goalNode.PlayerClass = this;
+        goalNode.isTaken = true;
+
+        currentNode = goalNode;
+        goalNode = null;
+
+        GameManager.instance.state = GameManager.States.ROLL_DICE;
+        isMoving = false;
     }
 }

@@ -66,13 +66,16 @@ public class GameManager : MonoBehaviour
     }
     void RollDice()
     {
-        int diceNumber = Random.Range(1, 7);
+        //int diceNumber = Random.Range(1, 7);
+        int diceNumber = 6;
 
         if (diceNumber == 6)
         {
+            Debug.Log("Kockica: " + diceNumber);
             //provjera da li je startna pozicija prazna
+            CheckStartNode(diceNumber);
         }
-        if (diceNumber < 6)
+        else if (diceNumber < 6)
         {
             Debug.Log("Kockica: " + diceNumber);
             //da li treba koga izbaciti
@@ -88,6 +91,9 @@ public class GameManager : MonoBehaviour
     {
         //je li itko na startu
         bool startNodeFull = false;
+
+        Debug.Log(startNodeFull);
+
         for (int i = 0; i < playerList[activePlayer].players.Length; i++)
         {
             if (playerList[activePlayer].players[i].currentNode == playerList[activePlayer].players[i].startNode)
@@ -99,19 +105,21 @@ public class GameManager : MonoBehaviour
         if (startNodeFull)
         {
             //pomakni igrača
+            Debug.Log("START node pun");
         }
         else
         {
             for (int i = 0; i < playerList[activePlayer].players.Length; i++)
             {
-                if (playerList[activePlayer].players[i].ReturnIsOut())
+                if (!playerList[activePlayer].players[i].ReturnIsOut())
                 {
                     //ako je jedan u bazi ide van
+                    playerList[activePlayer].players[i].LeaveBase();
                     state = States.WAITING;
                     return;
                 }
             }
-            //////
+            ////
         }
     }
 }

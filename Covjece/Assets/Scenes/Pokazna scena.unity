@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!1 &35941061
 GameObject:
@@ -542,7 +543,7 @@ MonoBehaviour:
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1956103073}
+  startNode: {fileID: 1018084709}
   baseNode: {fileID: 375980219}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -1422,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!4 &399982337 stripped
 Transform:
@@ -2136,6 +2138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!1 &841815416
 GameObject:
@@ -2570,6 +2573,18 @@ Transform:
   m_Father: {fileID: 110704950}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1018084709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5608608844555500995, guid: ce975f5974d168e47ac26d6db6e4febd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1375101225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1048664847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!4 &1093574215 stripped
 Transform:
@@ -3417,7 +3433,7 @@ MonoBehaviour:
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1956103073}
+  startNode: {fileID: 1018084709}
   baseNode: {fileID: 1359708749}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -3460,6 +3476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!1 &1359708744 stripped
 GameObject:
@@ -3479,6 +3496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!1001 &1375101225
 PrefabInstance:
@@ -4891,7 +4909,7 @@ MonoBehaviour:
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1956103073}
+  startNode: {fileID: 1018084709}
   baseNode: {fileID: 1063172784}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -5039,7 +5057,7 @@ MonoBehaviour:
   commonRoute: {fileID: 1949761059}
   finalRoute: {fileID: 1199011738}
   fullRoute: []
-  startNode: {fileID: 1956103073}
+  startNode: {fileID: 1018084709}
   baseNode: {fileID: 1318335569}
   goalNode: {fileID: 0}
   currentNode: {fileID: 0}
@@ -5178,18 +5196,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea59609e0779fe4b8960d548893f065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1956103073 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7495752339158392204, guid: ce975f5974d168e47ac26d6db6e4febd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1375101225}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1982585665
@@ -5444,6 +5450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!1 &2120162738 stripped
 GameObject:
@@ -5463,6 +5470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3f07d523391d41a2d002d1eb3ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
   PlayerClass: {fileID: 0}
 --- !u!4 &2146336591 stripped
 Transform:
