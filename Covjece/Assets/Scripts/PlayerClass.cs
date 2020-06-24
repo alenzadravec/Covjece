@@ -89,6 +89,25 @@ public class PlayerClass : MonoBehaviour
             steps--;
             doneSteps++;
         }
+
+        goalNode = fullRoute[routePosition];
+        //provjeri za rušenje
+        if (goalNode.isTaken)
+        {
+
+        }
+        currentNode.PlayerClass = null;
+        currentNode.isTaken = false;
+
+        goalNode.PlayerClass = this;
+        goalNode.isTaken = true;
+
+        currentNode = goalNode;
+        goalNode = null;
+
+        //gamemanager
+        //promjeni igrača
+
         isMoving = false;
     }
 
@@ -176,7 +195,8 @@ public class PlayerClass : MonoBehaviour
     }
     public void StartTheMove(int diceNumber)
     {
-
+        steps = diceNumber;
+        StartCoroutine(Move());
     }
 }
 

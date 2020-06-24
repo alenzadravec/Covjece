@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         if (startNodeFull)
         {
             //pomakni igrača
-
+            MovePlayer(diceNumber);
             Debug.Log("START node pun");
         }
         else
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
                     return;
                 }
             }
-            ////
+            MovePlayer(diceNumber);
         }
     }
 
